@@ -67,7 +67,7 @@
 	</c:forEach>
 		<h2>이병헌만 출력 ==> ${actorList[0].name}, ${actorList[0].age}</h2>
 		<h2>차승원만 출력 ==> ${actorList[1].name}, ${actorList[1].age}</h2>
-		<h3>깃허브랑 연동했다???</h3>
+		<h3>연동 완료</h3>
 	
 	<c:forEach items="${mapList}" var="map">
 		<h4>mapList의 no : ${map.no}번</h4>
