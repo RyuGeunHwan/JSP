@@ -18,6 +18,7 @@
 		if는 있고 else는 없음 
 		test : 조건식 -->
 	<!-- 숫자 비교 -->
+	
 	<c:if test="${backNumber == 7}">
 	<h4>대한민국 만세!</h4>
 	</c:if>
@@ -46,7 +47,7 @@
 			<h4>사이즈는 200 이상입니다.</h4>
 		</c:otherwise>
 	</c:choose>
-	
+
 	
 	<!-- JSP 반복문(for문) -->
 	<!-- 
@@ -56,7 +57,7 @@
 	 *var="str" === str
 	 
 	} -->
-	<h1 style="color:red">c:forEach문</h1>
+		<h1 style="color:red">c:forEach문</h1>
 		<h5>items="${wsgList}"을 변수 "str"에 담아서 출력</h5>
 	<c:forEach items="${wsgList}" var="str">
 		<h4>str : ${str}</h4>
@@ -73,6 +74,12 @@
 		<h4>mapList의 no : ${map.no}번</h4>
 	</c:forEach>
 	
-	
+	<h4>${list1[0].name},${list1[0].age},${list1[0].getAddr()},${list1[0].getJob()}</h4>
+	<c:forEach items="${list1}" var="x">
+		<h4>${x.name}</h4>
+		<h4>${x.age}</h4>
+		<h4>${x.getAddr()}</h4>
+		<h4>${x.getJob()}</h4>
+	</c:forEach>
 </body>
 </html>

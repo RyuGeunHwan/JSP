@@ -26,6 +26,9 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+	<button type="button" onclick="doLogout()">로그아웃</button>
+ 	<h1>${userId}님 환영합니다.</h1>
+ 	<input id="userNo" type="hidden" value="${userNo}">
 	<!-- 문제. 테이블에 데이터 넣기  -->
 	<table>
 		<thead>
@@ -36,15 +39,32 @@ tr:nth-child(even) {
 	 		</tr>
 		</thead>
 	 	<tbody>
-	 		<c:forEach items="${data.list}" var="CCC">
-		 		<tr>
-				    <td>${CCC.get("Company")}</td>
-				    <td>${CCC.get("Contact")}</td>
-				    <td>${CCC.get("Country")}</td>
-  				</tr>
-			</c:forEach>
+		<!-- 함수를 사용하기 위해서는 fn:을 사용하여야한다. -->
+		<!-- 지시자 부분 prefix="fn"이 function을 사용할 수 있게 해주는 지시문이다.(fn = function의 변수)-->
+	 	<c:choose>
+	 		<c:when test="${fn:length(data.list) > 0}">
+			 	<c:forEach items="${data.list}" var="item">
+				 		<tr>
+						    <td>${item.get("Company")}</td>
+						    <td>${item.Contact}</td>
+						    <td>${item.Country}</td>
+		  				</tr>
+				</c:forEach>
+	 		</c:when>
+	 		<c:otherwise>
+	 			<tr>
+	 				<td colspan="3">데이터가 없습니다.</td>
+	 			</tr>
+	 		</c:otherwise>
+	 	</c:choose>
 	 	</tbody>
 	</table>
+	
+	<script type="text/javascript">
+	function doLogout(){
+		location.href = "/logout"
+	}
+	</script>
 	
 </body>
 </html>

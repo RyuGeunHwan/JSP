@@ -46,6 +46,12 @@
 		</dependency>
 <!--devtools END-->
 
+<!--Spring Session Core START-->
+<dependency>
+    <groupId>org.springframework.session</groupId>
+    <artifactId>spring-session-core</artifactId>
+</dependency>
+<!--Spring Session Core END-->
 
 	</dependencies>
 
