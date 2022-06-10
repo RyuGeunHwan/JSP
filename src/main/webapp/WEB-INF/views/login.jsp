@@ -22,10 +22,11 @@
 	function doLogin(){
 		// JQuery = $('#userId') & $('#userPassword')
 		// 순수 자바스크립트(바닐라 자바스크립트)
-		var userId = document.getElementById('userId').value;
-		var userPassword = document.getElementById('userPassword').value;
+		// var userId = document.getElementById('userId').value;
+		// var userPassword = document.getElementById('userPassword').value;
 		
-		
+		var userId = $('#userId').val();
+		var userPassword = $('#userPassword').val();
 		
 		if(userId !== '' || userPassword !== ''){
 			var jsonData = {

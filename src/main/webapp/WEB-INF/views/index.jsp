@@ -81,5 +81,26 @@
 		<h4>${x.getAddr()}</h4>
 		<h4>${x.getJob()}</h4>
 	</c:forEach>
+	
+	<!-- 일반 for문처럼 사용할 수 있는 for-each문 -->
+	<!-- begin부터 end까지 반복 (시작과 끝을 지정해준 뒤 변수에 대입하여 반복) -->
+	<c:forEach begin="1" end="5" var="i">
+		<h4>${i}</h4>
+	</c:forEach>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </body>
 </html>

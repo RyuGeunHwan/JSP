@@ -151,12 +151,14 @@ public class HomeController {
 	
 	// 로그인
 	@PostMapping("/login")
+	// @Controller == 템플릿 엔진O / @RestController == 템플릿 엔진X
 	// 메소드에 @ResponseBody를 입력하면 return을 json으로 요청하겠다는 의미.
 	// @RestController가 아닌 @Controller일 경우 return은 페이지 이름으로 해야함.
 	// 페이지 이름이 아니라 json으로 return하고 싶을 경우 @ResponseBody 사용
 	// 단, controller가 @RestController가 아닐경우!
 	// 요점 : controller가 @Controller일 경우 json으로 return할 때는 메소드에 @ResponseBody를 사용
 	public @ResponseBody boolean callLogin(@RequestBody Map<String, Object> data, HttpSession httpSession) {
+		System.out.println(data);//data == ajax에서 넘어온 데이터
 		String userId = (String) data.get("userId");
 		String userPassword = (String) data.get("userPassword");
 		
@@ -172,6 +174,10 @@ public class HomeController {
 	
 	
 	// 로그아웃
+	// board.jsp에 있는 로그아웃 버튼을 누르게 되면 함수 doLogout을 실행
+	// 함수 실행하게 되면 "/logout"으로 이동
+	// 이동하게 되면 goLoginpage 함수실행
+	// Session에 있는 "userId"와 "userPassword" remove후 파일명 "login" jsp페이지로 return
 	@GetMapping("/logout")
 	public String goLoginpage(HttpSession httpSession) {
 		// Session을 지움.
