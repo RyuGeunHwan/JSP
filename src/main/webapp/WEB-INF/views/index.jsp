@@ -12,19 +12,20 @@
 	<h1>Hello World!</h1>
 	<h3>${backNumber}</h3><!-- value가져오기 -->
 	<h3>${name}</h3><!-- value가져오기 -->
+	<h2>${size}</h2>
 	
 	<!-- JSP IF문 -->
 	<!-- c:if : JSP문법(jstl문법) 
 		if는 있고 else는 없음 
 		test : 조건식 -->
+		
 	<!-- 숫자 비교 -->
-	
 	<c:if test="${backNumber == 7}">
-	<h4>대한민국 만세!</h4>
+		<h4>대한민국 만세!</h4>
 	</c:if>
 	<!-- 문자 비교 -->
 	<c:if test="${name.equals('손흥민')}">
-	<h4>코리아 만세!</h4>
+		<h4>코리아 만세!</h4>
 	</c:if>
 	
 	

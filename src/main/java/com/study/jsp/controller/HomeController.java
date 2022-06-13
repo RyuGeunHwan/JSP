@@ -26,7 +26,7 @@ public class HomeController {
 		// 왼쪽 : key , 오른쪽 : value
 		map.addAttribute("name" , "손흥민");// name은 key, 손흥민은 value
 		map.addAttribute("backNumber" , 7);// backNumber은 key, 7은 value
-		map.addAttribute("size", 150);
+		map.addAttribute("size", 200);
 		
 		List<String> list = new ArrayList<String>();
 		list.add("씨야");
@@ -65,9 +65,9 @@ public class HomeController {
 		
 		List<ActorVO> list1 = new ArrayList<ActorVO>();
 		ActorVO a3 = new ActorVO();
-		a3.name = "류근환";
+		a3.name = "류근환"; //필드변수가 public이라서 바로 접근가능
 		a3.age = 28;
-		a3.setAddr("대전광역시");
+		a3.setAddr("대전광역시");// 필드변수가 private라서 getter,setter로 접근가능
 		a3.setJob("액션배우");
 		
 		ActorVO a4 = new ActorVO();
@@ -86,57 +86,57 @@ public class HomeController {
 	}
 	
 	
-//	@GetMapping("/board")
-//	public String loadBoardPage(ModelMap map, HttpSession httpSession) {
-//		
-//		Map<String, Object> data = new HashMap<String, Object>();
-//		
-//		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-//		
-//		Map<String, Object> map1 = new HashMap<String, Object>();
-//		map1.put("Company", "Alfreds Futterkiste");
-//		map1.put("Contact", "Maria Anders");
-//		map1.put("Country", "Germany");
-//		
-//		Map<String, Object> map2 = new HashMap<String, Object>();
-//		map2.put("Company", "Centro comercial Moctezuma");
-//		map2.put("Contact", "Francisco Chang");
-//		map2.put("Country", "Mexico");
-//		
-//		Map<String, Object> map3 = new HashMap<String, Object>();
-//		map3.put("Company", "Ernst Handel");
-//		map3.put("Contact", "Roland Mendel");
-//		map3.put("Country", "Austria");
-//		
-//		list.add(map1);
-//		list.add(map2);
-//		list.add(map3);
-//		
-//		data.put("list", list);
-//		data.put("size", 3);
-//		
-//		map.addAttribute("data", data);
-//		
-//		
-//		// 모든 메소드에 Session을 확인하고 싶을 때는 데이터 요청을 받기 전 Interceptor에서 미리 받아서 확인한다.
-//		// "/login"에서 SET한 Session데이터 가져오기
-//		String userId = (String)httpSession.getAttribute("userId");
-//		String userPassword = (String)httpSession.getAttribute("userPassword");
-//		
-//		System.out.println("Session에서 가져온 데이터 "+userId);
-//		
-//		// 해석 : userId가 null이라는것은 login을 하지 않았다는 의미.
-//		// redirect(재요청, 다시 돌아가라)
-//		if(userId == null) { 
-//			// if가 실행되면 "/login"으로 return
-//			return "redirect:/login";
-//		}
-//		map.addAttribute("userNo", 255);
-//		map.addAttribute("userId", userId);
-//		
-//		return "board";
-//	}
-//	
+	@GetMapping("/board")
+	public String loadBoardPage(ModelMap map, HttpSession httpSession) {
+		
+		Map<String, Object> data = new HashMap<String, Object>();
+		
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		
+		Map<String, Object> map1 = new HashMap<String, Object>();
+		map1.put("Company", "Alfreds Futterkiste");
+		map1.put("Contact", "Maria Anders");
+		map1.put("Country", "Germany");
+		
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		map2.put("Company", "Centro comercial Moctezuma");
+		map2.put("Contact", "Francisco Chang");
+		map2.put("Country", "Mexico");
+		
+		Map<String, Object> map3 = new HashMap<String, Object>();
+		map3.put("Company", "Ernst Handel");
+		map3.put("Contact", "Roland Mendel");
+		map3.put("Country", "Austria");
+		
+		list.add(map1);
+		list.add(map2);
+		list.add(map3);
+		
+		data.put("list", list);
+		data.put("size", 3);
+		
+		map.addAttribute("data", data);
+		
+		
+		// 모든 메소드에 Session을 확인하고 싶을 때는 데이터 요청을 받기 전 Interceptor에서 미리 받아서 확인한다.
+		// "/login"에서 SET한 Session데이터 가져오기
+		String userId = (String)httpSession.getAttribute("userId");
+		String userPassword = (String)httpSession.getAttribute("userPassword");
+		
+		System.out.println("Session에서 가져온 데이터 "+userId);
+		
+		// 해석 : userId가 null이라는것은 login을 하지 않았다는 의미.
+		// redirect(재요청, 다시 돌아가라)
+		if(userId == null) { 
+			// if가 실행되면 "/login"으로 return
+			return "redirect:/login";
+		}
+		map.addAttribute("userNo", 255);
+		map.addAttribute("userId", userId);
+		
+		return "board";
+	}
+	
 	//  / : ROOT경로 
 	// ex) /board/boardId/12
 	@GetMapping("/")
@@ -189,15 +189,14 @@ public class HomeController {
 		
 	}
 	
-	
-	@GetMapping("/board")
-	public String callBoardPage(ModelMap map,
-			@RequestParam("pageNum") int pageNum,
-			@RequestParam("pageSize") int pageSize
-			){
-		
-		return "board";
-	}
+//	@GetMapping("/board")
+//	public String callBoardPage(ModelMap map,
+//			@RequestParam("pageNum") int pageNum,
+//			@RequestParam("pageSize") int pageSize
+//			){
+//		
+//		return "board";
+//	}
 	
 	
 	
